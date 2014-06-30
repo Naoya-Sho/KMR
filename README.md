@@ -1,0 +1,4 @@
+KMR
+===
+
+Stochastic Revolutionary Dynamics
