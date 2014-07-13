@@ -46,8 +46,8 @@ def genP(N, pay_0, epsilon):
 
         else:
         
-            P[n, n+1] += n/N * (1 - epsilon * 0.5)
-            P[n, n-1] += (1 - n/N) * epsilon * 0.5
+            P[n, n+1] += (1 - n/N) * (1 - epsilon * 0.5)
+            P[n, n-1] += n/N * epsilon * 0.5
 
 
         P[n,n] = 1 - sum(P[n])

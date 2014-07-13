@@ -44,8 +44,8 @@ for n in range(1, N):
 
     else:
         
-        P[n, n+1] += n/N * (1 - epsilon * 0.5)
-        P[n, n-1] += (1 - n/N) * epsilon * 0.5
+        P[n, n+1] += (1 - n/N) * (1 - epsilon * 0.5)
+        P[n, n-1] += n/N * epsilon * 0.5
 
 
     P[n,n] = 1 - sum(P[n])
