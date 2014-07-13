@@ -10,9 +10,9 @@ gamename = 'KMR'
 pay = np.array([[[4, 4], [0, 3]], 
                 [[3, 0], [2, 2]]]) 
 
-N = 20 
-trials = 10000 
-epsilons = (0.5, 0.3, 0.1)
+N = 10
+trials = 1000 
+epsilon = 0.5
 default = 0
 
 def sep(a, p):
@@ -59,12 +59,10 @@ def genP(N, pay_0, epsilon):
 
 fig, ax = plt.subplots()
 
-for e in epsilons:
-    P = genP(N, pay_0, e)
-    stat_dist = mc_compute_stationary(P)
-    plt.xlim(0,1)
-    ax.hist(stat_dist)
-    plt.title('Num. of players = ' + str(N)  + ', '+ 'Trials = '+ str(trials) + ', ' + 'epsilon = ' + str(e), color='k')
-    plt.savefig(gamename + '_hist' + str(N) + str(trials) + str(e) + '.png',transparent=True, bbox_inches='tight', pad_inches=0)
-    plt.close()
+P = genP(N, pay_0, epsilon)
+stat_dist = mc_compute_stationary(P)
+ax.bar(range(N+1), stat_dist)
+plt.title('Num. of players = ' + str(N)  + ', '+ 'Trials = '+ str(trials) + ', ' + 'epsilon = ' + str(epsilon), color='k')
+plt.savefig(gamename + '_hist' + str(N) + str(trials) + str(epsilon) + '.png',transparent=True, bbox_inches='tight', pad_inches=0)
+plt.show()
 
